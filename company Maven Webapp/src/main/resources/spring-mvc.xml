@@ -20,6 +20,7 @@
 	<!-- 拦截器配置 -->
  	<mvc:interceptors>
 			<bean class="com.alex.base.interceptor.MonitorInterceptor" />
+			<bean class="com.alex.base.interceptor.SystemInterceptor" />
 	</mvc:interceptors> 
 
 	<!-- 对模型视图添加前后缀 -->

@@ -4,18 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.joda.time.DateTime;
 
 //@Entity
-//@Table(name = "t_user")  
 @Entity(name="t_ichat_user")
+//@Table(name="t_ichat_user")  
 public class User {
     // 主键自动增长
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String username;
+    private String userName;
 	private String password;
     private String nickName;
     private String mobile;
@@ -31,11 +32,11 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
