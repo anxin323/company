@@ -7,7 +7,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
+/**
+ * 日志记录uri的响应时间
+ * @author hadoop
+ *
+ */
 public class MonitorInterceptor extends HandlerInterceptorAdapter {
 	
 	private static final Log LOGGER = LogFactory.getLog(MonitorInterceptor.class);

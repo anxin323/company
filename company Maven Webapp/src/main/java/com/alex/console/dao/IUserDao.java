@@ -4,8 +4,13 @@ import java.util.List;
 
 import com.alex.console.model.User;
 
+/**
+ * 用户相关操作的持久层
+ * @author hadoop
+ *
+ */
 public interface IUserDao {
-	public User getUser(String id);  
+	public User getUser(int id);  
 
 	public List<User> getAllUser();  
 

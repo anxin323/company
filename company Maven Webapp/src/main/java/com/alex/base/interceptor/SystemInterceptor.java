@@ -3,34 +3,14 @@ package com.alex.base.interceptor;
 import java.io.PrintWriter;  
 import java.util.Iterator;  
 import java.util.Map;  
-  
-
-
-
-
-
-
 import javax.annotation.Resource;  
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
-  
-
-
-
-
-
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;  
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  
-  
-
-
-
-
-
 
 import com.alex.console.controller.UserController;
 import com.alex.console.model.SystemLog;
@@ -38,6 +18,11 @@ import com.alex.console.model.User;
 import com.alex.console.service.ISystemLoggerService;
 import com.alex.utils.AppConstant;
   
+/**
+ * 指定目录访问的权限验证和访问记录写数据库
+ * @author hadoop
+ *
+ */
 @Repository  
 public class SystemInterceptor extends HandlerInterceptorAdapter {  
   
@@ -66,7 +51,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
         String[] noFilters = new String[] { "login.html", "veriCode.html",  
                 "index.html", "logout.html" };  
         String uri = request.getRequestURI();  
-        LOGGER.info("uri="+uri);
+        //LOGGER.info("uri="+uri);
         if (uri.indexOf("background") != -1) {  
             boolean beFilter = true;  
             for (String s : noFilters) {  

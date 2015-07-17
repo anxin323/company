@@ -12,6 +12,7 @@ public class SystemLoggerServiceImpl implements ISystemLoggerService {
 
 	@Autowired
 	private ISystemLogDao systemLogDao;
+	
 	@Override
 	public int addSystemLog(SystemLog systemLog) {
 		return systemLogDao.addSystemLog(systemLog);

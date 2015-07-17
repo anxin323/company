@@ -1,5 +1,10 @@
 package com.alex.utils;
 
+/**
+ * 系统常量
+ * @author hadoop
+ *
+ */
 public class AppConstant {
 	public final static String LOGINED="userInfo";
 	public final static String BASEPATH="";

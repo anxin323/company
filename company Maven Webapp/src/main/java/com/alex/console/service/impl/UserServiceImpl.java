@@ -15,7 +15,7 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private IUserDao userDao;  
 
-	public User getUser(String id) {  
+	public User getUser(int id) {  
 	    return userDao.getUser(id);  
 	}  
 
