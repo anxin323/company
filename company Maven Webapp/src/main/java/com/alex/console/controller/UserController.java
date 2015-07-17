@@ -36,15 +36,15 @@ public class UserController extends BaseController{
 //		}
 	}
 
-	@RequestMapping(value = "getUser",  produces = "application/json; charset=utf-8")
-	@ApiOperation(value = "获取用户信息", httpMethod = "POST", notes = "获取用户信息", response = BaseResultVo.class)
+	@RequestMapping(value = "getUser",  method = RequestMethod.GET,produces = "application/json; charset=utf-8")
+	@ApiOperation(value = "获取用户信息", httpMethod = "GET", notes = "获取用户信息", response = BaseResultVo.class)
 	public @ResponseBody String getUser() {
 //		List<User> userList= userService.getUsers();
 		return buildSuccessResultInfo("");
 	}
 	
-	@RequestMapping(value = "verifyUser", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
-	@ApiOperation(value = "验证用户信息", httpMethod = "GET", notes = "请输入用户名和密码", response = BaseResultVo.class)
+	@RequestMapping(value = "verifyUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	@ApiOperation(value = "验证用户信息", httpMethod = "POST", notes = "请输入用户名和密码", response = BaseResultVo.class)
 	public @ResponseBody String verifyUser(@ApiParam(required = true) @RequestParam String userName,@ApiParam(required = true) @RequestParam String password) {
 		User user = new User();
 		user.setUsername(userName);

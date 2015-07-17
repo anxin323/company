@@ -15,7 +15,7 @@
 	
 	<mvc:annotation-driven />
      <!-- 扫描controller（controller层注入） -->
-	<context:component-scan base-package="com.alex.*.controller" />
+	<context:component-scan base-package="com.alex.*.controller,com.alex.*.config" />
 	
 	<!-- 拦截器配置 -->
  	<mvc:interceptors>
