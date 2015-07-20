@@ -57,7 +57,7 @@ public class AuthController extends BaseController{
 		List<User> userList= userService.getAllUser();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("userList", userList);
-		mv.setViewName("userList");
+		mv.setViewName("views/userList");
 		return mv;
 //		model.addAttribute("userList", userList);
 //		return new ModelAndView("userList",model);
