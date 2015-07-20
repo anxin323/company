@@ -44,7 +44,7 @@ public class MySwaggerConfig
     public SwaggerSpringMvcPlugin customImplementation()
     {
         //return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns(".*?");
-        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns(".*?");
+        return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(apiInfo()).includePatterns("/restapi/.*?");
     }
 
     private ApiInfo apiInfo()

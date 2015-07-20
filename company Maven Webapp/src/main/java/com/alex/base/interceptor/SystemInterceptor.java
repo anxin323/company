@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;  
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  
 
-import com.alex.console.controller.UserController;
+import com.alex.console.controller.AuthController;
 import com.alex.console.model.SystemLog;
 import com.alex.console.model.User;
 import com.alex.console.service.ISystemLoggerService;

@@ -28,14 +28,14 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 @Controller
 @RequestMapping(value = "console/user/")
-public class UserController extends BaseController{
+public class AuthController extends BaseController{
 	@Autowired
 	private IUserService userService;
 	
-	private static final Log LOGGER = LogFactory.getLog(UserController.class);
+	private static final Log LOGGER = LogFactory.getLog(AuthController.class);
 
 	@RequestMapping(value = "addUser", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
-	@ApiOperation(value = "新增用户信息", httpMethod = "GET", notes = "填写完整的用户信息", response = BaseResultVo.class)
+	//@ApiOperation(value = "新增用户信息", httpMethod = "GET", notes = "填写完整的用户信息", response = BaseResultVo.class)
 	public @ResponseBody String addUser( @ApiParam(required = true) @ModelAttribute User user) {
 		if("".equals(user.getUserName().trim())){
 			return buildFailedResultInfo(201, "用户名不能为空");
@@ -51,8 +51,8 @@ public class UserController extends BaseController{
 		}
 	}
 
-	@RequestMapping(value = "background/getUser",  method = RequestMethod.GET,produces = "application/json; charset=utf-8")
-	@ApiOperation(value = "获取用户信息", httpMethod = "GET", notes = "获取用户信息", response = BaseResultVo.class)
+	@RequestMapping(value = "getUser",  method = RequestMethod.GET,produces = "application/json; charset=utf-8")
+	//@ApiOperation(value = "获取用户信息", httpMethod = "GET", notes = "获取用户信息", response = BaseResultVo.class)
 	public @ResponseBody ModelAndView getUser(ModelMap model) {
 		List<User> userList= userService.getAllUser();
 		ModelAndView mv = new ModelAndView();
@@ -65,7 +65,7 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value = "verifyUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-	@ApiOperation(value = "验证用户信息", httpMethod = "POST", notes = "请输入用户名和密码", response = BaseResultVo.class)
+	//@ApiOperation(value = "验证用户信息", httpMethod = "POST", notes = "请输入用户名和密码", response = BaseResultVo.class)
 	public String verifyUser(@ApiParam(required = true) @RequestParam String userName,@ApiParam(required = true) @RequestParam String password,HttpServletRequest request, HttpSession session) {
 		if("".equals(userName.trim())){
 			return buildFailedResultInfo(201, "用户名不能为空");
@@ -79,7 +79,7 @@ public class UserController extends BaseController{
 		}
 		if(password.equals(user.getPassword())){
 			request.getSession().setAttribute("userInfo", user);
-			return "redirect:/console/user/background/getUser";
+			return "redirect:/console/user/getUser";
 			//return buildSuccessResultInfo(user);
 		}else{
 			return buildFailedResultInfo(201, "密码不正确");
