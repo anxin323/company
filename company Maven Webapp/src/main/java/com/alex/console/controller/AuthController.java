@@ -1,10 +1,14 @@
 package com.alex.console.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
@@ -57,7 +61,7 @@ public class AuthController extends BaseController{
 		List<User> userList= userService.getAllUser();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("userList", userList);
-		mv.setViewName("views/userList");
+		mv.setViewName("userList");
 		return mv;
 //		model.addAttribute("userList", userList);
 //		return new ModelAndView("userList",model);
@@ -79,18 +83,35 @@ public class AuthController extends BaseController{
 		}
 		if(password.equals(user.getPassword())){
 			request.getSession().setAttribute("userInfo", user);
-			return "redirect:/console/user/getUser";
+			//return "redirect:/console/user/getUser";
 			//return buildSuccessResultInfo(user);
+			return "myList";
 		}else{
 			return buildFailedResultInfo(201, "密码不正确");
 		}
 	}
 	
 	@RequestMapping("/demo2/show")  
-    public @ResponseBody Map<String, String> getMap() {  
+    public @ResponseBody void getMap(HttpServletResponse response) {  
         Map<String, String> map = new HashMap<String, String>();  
         map.put("key1", "value-1");  
         map.put("key2", "value-2");  
-        return map;  
+        PrintWriter pw;
+		try {
+			pw = response.getWriter();
+			pw.print("Hello,Alex");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     } 
+	
+	@RequestMapping(value = "getUser1",  method = RequestMethod.GET,produces = "application/json; charset=utf-8")
+	public @ResponseBody List<User> getUser1() {
+		List<User> userList= userService.getAllUser();
+		/*ModelAndView mv = new ModelAndView();
+		mv.addObject("userList", userList);
+		mv.setViewName("userList");*/
+		return userList;
+	}
 }
