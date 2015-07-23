@@ -84,7 +84,7 @@
 					<li><a href="">关于系统</a></li>
 				</ul>
 			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-right: 100px;">
 				<!--           <h1 class="page-header">Dashboard</h1>
 
           <div class="row placeholders">
@@ -128,6 +128,7 @@
 									onclick="checkAllBox(this)"></th>
 								<th>ID</th>
 								<th>用户名</th>
+								<th>昵称</th>
 								<th>邮箱</th>
 								<th>手机</th>
 							</tr>
@@ -171,6 +172,9 @@
 																	var td3 = $("<td>"
 																			+ val.userName
 																			+ "</td>");
+																	var td6 = $("<td>"
+																			+ val.nickName
+																			+ "</td>");
 																	var td4 = $("<td>"
 																			+ val.email
 																			+ "</td>");
@@ -185,6 +189,8 @@
 																					td2)
 																			.append(
 																					td3)
+																			.append(
+																					td6)
 																			.append(
 																					td4)
 																			.append(
